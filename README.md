@@ -14,7 +14,17 @@ Then, in a partial, utilize the filter to prevent an orphaned word in a string:
 
     <p class="text-large" ng-bind-html="vm.test | deorphanize"></p>
     
+Let's assume that vm.test contained a string of 'Angular is a pretty cool framework'. Essentially what would get output becomes: 
+    
+    'Angular is a pretty cool&nbsp;framework'
+    
+The insertion of a non-breaking space ensures no line break between the last two words and therefore no orphans.
+    
     
 Additionally, the 'strength' can be increased with an optional parameter:
 
     <p ng-bind-html="vm.test | deorphanize:3"></p>
+    
+So, 'Angular is a pretty cool framework' would now become: 
+
+    'Angular is a&nbsp;pretty&nbsp;cool&nbsp;framework'
